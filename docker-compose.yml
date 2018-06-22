@@ -1,62 +1,26 @@
-version: '3'
+version: '2'
 
 services:
-  ubuntu-c:
-    build: .
+  control:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile-control
+    hostname: control
     ports:
-      - "8080:8080"
-    container_name: ubuntu-c
-    command: tail -f /dev/null
-    networks: 
-      - ansible-net
-  ubuntu1:
-    image: ubuntu
+      - "2200:22"
+    # The below environment shouldn't be needed because Ansible already looks
+    # for the config in ~/ansible/ansible.cfg, but maybe the process of volume
+    # mount is disrupting it. We can prioritize it's location search with the
+    # ENV ANSIBLE_CONFIG.
+    environment:
+      - ANSIBLE_CONFIG=/root/ansible/ansible.cfg
+    volumes:
+      - ./ansible:/root/ansible
+  awslinux1:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile-node
+    hostname: awslinux1
     ports:
-      - "8001:8001"
-    container_name: ubuntu1
-    command: tail -f /dev/null
-    networks: 
-      - ansible-net
-  ubuntu2:
-    image: ubuntu
-    ports:
-      - "8002:8002"
-    container_name: ubuntu2
-    command: tail -f /dev/null
-    networks: 
-      - ansible-net
-  ubuntu3:
-    image: ubuntu
-    ports:
-      - "8003:8003"
-    container_name: ubuntu3
-    command: tail -f /dev/null
-    networks: 
-      - ansible-net
-  centos1:
-    image: centos
-    ports:
-      - "8004:8004"
-    container_name: centos1
-    command: tail -f /dev/null
-    networks: 
-      - ansible-net
-  centos2:
-    image: centos
-    ports:
-      - "8005:8005"
-    container_name: centos2
-    command: tail -f /dev/null
-    networks: 
-      - ansible-net
-  centos3:
-    image: centos
-    ports:
-      - "8006:8006"
-    container_name: centos3
-    command: tail -f /dev/null
-    networks: 
-      - ansible-net
-
-networks: 
-  ansible-net:
+      - "2204:22"
+      - "8080:80"

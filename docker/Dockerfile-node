@@ -1,0 +1,12 @@
+FROM amazonlinux
+
+RUN yum install -y openssh-server
+RUN mkdir /var/run/sshd
+RUN mkdir /root/.ssh
+
+COPY ssh_node_config /root/.ssh/config
+COPY rsa_ansible_key.pub /root/.ssh/authorized_keys
+
+EXPOSE 22
+
+CMD ["/sbin/init"]

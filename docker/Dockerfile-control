@@ -1,0 +1,13 @@
+FROM python:3.6
+
+RUN pip install ansible
+RUN apt-get update
+RUN apt-get install -y openssh-server
+RUN apt-get install -y vim
+RUN mkdir /var/run/sshd
+RUN mkdir /root/.ssh/
+
+COPY rsa_ansible_key /root/.ssh/ansible
+COPY rsa_ansible_key.pub /root/.ssh/ansible.pub
+
+CMD ["tail", "-f", "/dev/null"]
