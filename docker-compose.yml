@@ -5,22 +5,33 @@ services:
     build:
       context: ./docker
       dockerfile: Dockerfile-control
-    hostname: control
+    container_name: control
+    volumes:
+      - ./ansible/ansible.cfg:/home/ansible/ansible.cfg
+      - ./ansible/hosts:/etc/ansible/hosts
     ports:
       - "2200:22"
-    # The below environment shouldn't be needed because Ansible already looks
-    # for the config in ~/ansible/ansible.cfg, but maybe the process of volume
-    # mount is disrupting it. We can prioritize it's location search with the
-    # ENV ANSIBLE_CONFIG.
-    environment:
-      - ANSIBLE_CONFIG=/root/ansible/ansible.cfg
-    volumes:
-      - ./ansible:/root/ansible
-  awslinux1:
+  ec1:
     build:
       context: ./docker
       dockerfile: Dockerfile-node
-    hostname: awslinux1
+    container_name: ec1
     ports:
-      - "2204:22"
-      - "8080:80"
+      - "2201:22"
+      - "8081:80"
+  ec2:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile-node
+    container_name: ec2
+    ports:
+      - "2202:22"
+      - "8082:80"
+  ec3:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile-node
+    container_name: ec3
+    ports:
+      - "2203:22"
+      - "8083:80"

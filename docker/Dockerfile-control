@@ -2,12 +2,22 @@ FROM python:3.6
 
 RUN pip install ansible
 RUN apt-get update
-RUN apt-get install -y openssh-server
-RUN apt-get install -y vim
-RUN mkdir /var/run/sshd
-RUN mkdir /root/.ssh/
+RUN apt-get install -y openssh-server sudo vim
+RUN apt-get clean
 
-COPY rsa_ansible_key /root/.ssh/ansible
-COPY rsa_ansible_key.pub /root/.ssh/ansible.pub
+# The user though which we'll be operating Ansible
+RUN useradd ansible -s /bin/bash && \
+    mkdir -p /home/ansible/.ssh/ && \
+    chmod 700 /home/ansible/.ssh/
 
-CMD ["tail", "-f", "/dev/null"]
+#COPY ./ansible.cfg /home/ansible/
+#COPY ./hosts /home/ansible/
+
+RUN chown -R ansible:ansible /home/ansible/
+
+USER ansible
+#RUN rm /home/ansible/.ssh/known_hosts
+#RUN touch /home/ansible/.ssh/known_hosts
+# Just some command to keep the container from going down
+CMD ["rm", "/home/ansible/.ssh/known_hosts", "&&", "touch", "/home/ansible/.ssh/known_hosts"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]

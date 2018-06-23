@@ -1,11 +1,20 @@
 FROM amazonlinux
 
-RUN yum install -y openssh-server
-RUN mkdir /var/run/sshd
-RUN mkdir /root/.ssh
+RUN yum -y install openssh-server vim sudo
+RUN yum clean all
 
-COPY ssh_node_config /root/.ssh/config
-COPY rsa_ansible_key.pub /root/.ssh/authorized_keys
+RUN useradd remote-ansible -s /bin/bash && \
+    echo remote-ansible:remote-ansible | chpasswd && \
+    mkdir -p /home/remote-ansible/.ssh/ && \
+    chmod 0700 /home/remote-ansible/.ssh/
+
+RUN chown -R remote-ansible:remote-ansible /home/remote-ansible/
+
+# Give sudo without password permission to remote-ansible
+RUN echo "remote-ansible ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+RUN mkdir /var/run/sshd
+COPY sshd_node_config /etc/ssh/sshd_config
 
 EXPOSE 22
 
