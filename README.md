@@ -20,5 +20,5 @@ From within the `control` container:
 ```bash
 ssh-keygen  # Generate a new key and leave the defaults including no password.
 ssh-copy-id remote-user@ec1  # You should be able to copy the key to the ec1 node
-ansible all -m ping  # should return a green success message.
+ansible all -m ping --user=remote-ansible  # should return a green success message.
 ```
