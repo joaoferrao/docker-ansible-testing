@@ -6,9 +6,12 @@ services:
       context: ./docker
       dockerfile: Dockerfile-control
     container_name: control
+    # Ansible is expecting the config file to be in this folder, but the mounted
+    # file from docker is messing up with it.
+    environment:
+      - ANSIBLE_CONFIG=/home/ansible/ansible/ansible.cfg
     volumes:
-      - ./ansible/ansible.cfg:/home/ansible/ansible.cfg
-      - ./ansible/hosts:/etc/ansible/hosts
+      - ./ansible:/home/ansible/ansible
     ports:
       - "2200:22"
   ec1:
