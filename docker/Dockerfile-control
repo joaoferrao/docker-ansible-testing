@@ -2,7 +2,7 @@ FROM python:3.6
 
 RUN pip install ansible
 RUN apt-get update
-RUN apt-get install -y openssh-server sudo vim
+RUN apt-get install -y openssh-server sshpass sudo vim
 RUN apt-get clean
 
 # The user though which we'll be operating Ansible

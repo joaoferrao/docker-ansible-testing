@@ -8,10 +8,13 @@ RUN useradd remote-ansible -s /bin/bash && \
     mkdir -p /home/remote-ansible/.ssh/ && \
     chmod 0700 /home/remote-ansible/.ssh/
 
+RUN echo root:remote-root | chpasswd
+
 RUN chown -R remote-ansible:remote-ansible /home/remote-ansible/
 
 # Give sudo without password permission to remote-ansible
-RUN echo "remote-ansible ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+# Same as 'visudo' command and editing manually
+RUN echo "remote-ansible ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
 RUN mkdir /var/run/sshd
 COPY sshd_node_config /etc/ssh/sshd_config
