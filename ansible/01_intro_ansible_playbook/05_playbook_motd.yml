@@ -1,0 +1,13 @@
+---
+-
+  hosts: aws
+  user: root
+  gather_facts: true
+  vars:
+    motd: "Welcome to the message of the day file \n"
+  tasks:
+    - name: Configure a MOTD (message of the day)
+      copy:
+        content: "{{ motd }}"
+        dest: /etc/motd
+...

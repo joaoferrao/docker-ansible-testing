@@ -1,0 +1,19 @@
+---
+-
+  hosts: aws
+  user: root
+  gather_facts: true
+  vars:
+    motd: "MOTD in Ansible rocks!  \n"
+  tasks:
+    - name: Configure a MOTD (message of the day)
+      copy:
+        content: "{{ motd }}"
+        dest: /etc/motd
+      notify: MOTD Changed
+  handlers:
+    - name: MOTD Changed
+      debug:
+        msg: "The MOTD changed."
+
+...
