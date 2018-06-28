@@ -117,3 +117,7 @@ ansible aws -m file -a 'state=file mode=600 path=/tmp/test_modules.txt'
 ansible aws -m fetch -a 'src=/tmp/test_modules.txt dest=/tmp/test_modules.txt'  # will copy each to a newly created folder such as "dest": "/tmp/test_modules.txt/ec3/tmp/test_modules.txt",
 ```
 
+### Acknowledgement
+
+Original `create_users` playbook from [msergiy87](https://github.com/msergiy87/ansible-create-users)
+

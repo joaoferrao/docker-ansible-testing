@@ -565,3 +565,5 @@ fabric.properties
 /virtualbox
 *.retry
 /ansible/sub-module
+.DS_Store
+
