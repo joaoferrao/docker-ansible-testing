@@ -1,0 +1,25 @@
+FROM jenkins/jenkins
+
+USER root
+
+RUN apt-get update
+RUN apt-get install -y openssh-server sshpass sudo vim python-pip
+RUN apt-get clean
+RUN pip install ansible
+
+# The user though which we'll be operating Ansible
+RUN mkdir -p /etc/ansible/ && \
+    chmod 700 /etc/ansible/ && \
+    chown -R jenkins:jenkins /etc/ansible/
+
+COPY id_rsa /var/jenkins_home/.ssh/id_rsa
+COPY id_rsa.pub /var/jenkins_home/.ssh/id_rsa.pub
+COPY awsuser /var/jenkins_home/.ssh/awsuser
+RUN chmod -R 600 /var/jenkins_home/.ssh/
+RUN chown -R jenkins:jenkins /var/jenkins_home/
+
+#CMD ["rm", "/var/jenkins_home/.ssh/known_hosts", "&&", "touch", "/var/jenkins_home/.ssh/known_hosts"]
+
+USER jenkins
+
+ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/jenkins.sh"]

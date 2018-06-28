@@ -1,0 +1,34 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<Tag plugin="workflow-support@2.19">
+  <node class="cps.n.StepStartNode" plugin="workflow-cps@2.54">
+    <parentIds>
+      <string>9</string>
+    </parentIds>
+    <id>10</id>
+    <descriptorId>org.jenkinsci.plugins.workflow.steps.EnvStep</descriptorId>
+  </node>
+  <actions>
+    <wf.a.TimingAction plugin="workflow-api@2.28">
+      <startTime>1530182579256</startTime>
+    </wf.a.TimingAction>
+    <s.a.LogActionImpl>
+      <charset>UTF-8</charset>
+    </s.a.LogActionImpl>
+    <cps.a.ArgumentsActionImpl plugin="workflow-cps@2.54">
+      <arguments>
+        <entry>
+          <string>overrides</string>
+          <list>
+            <string>GIT_BRANCH=jenkins</string>
+            <string>GIT_COMMIT=080c78b6e01460990eccca2ce5488de748efdfd2</string>
+            <string>GIT_LOCAL_BRANCH=jenkins</string>
+            <string>GIT_PREVIOUS_COMMIT=30545075c0dc0d724ce051ed6b67853e4228dd81</string>
+            <string>GIT_PREVIOUS_SUCCESSFUL_COMMIT=30545075c0dc0d724ce051ed6b67853e4228dd81</string>
+            <string>GIT_URL=https://github.com/joaoferrao/docker-ansible-testing.git</string>
+          </list>
+        </entry>
+      </arguments>
+      <isUnmodifiedBySanitization>true</isUnmodifiedBySanitization>
+    </cps.a.ArgumentsActionImpl>
+  </actions>
+</Tag>

@@ -1,9 +1,9 @@
 # docker-ansible-testing
 
 Create the containers within the `docker-compose.yml` and experiment Ansible
-execution from within the `control` container.
+execution from within the `jenkins-ansible` container.
 
-- `control` container a user `ansible`
+- `jenkins-ansible` container a user `jenkins`
 - `ecX` containers based on `awslinux` image have user: `ansible-remote` with
 password: `ansible-remote` as password.
 - Pre defined inventory of hosts called "aws" with `ec1`, `ec2`, `ec3`.
@@ -15,37 +15,29 @@ inventory, even if no group is defined and
 will use the `ansible.cfg` file in the working directory you are at the moment.
 For this, I've setup a set of different sub directories within `/ansible`, each 
 of them containing an `ansible.cfg` specific to the playbooks or commands I need
-to test.
+to test. This folder is mounted in /etc/ansible inside the jenkins-ansible container.
    
 ## Build the docker images
 ```bash
 docker-compose up --build -d
 ```
 
-
 # Fleet basic setup
 ## Test your first command 
 From within the `control` container:
-```bash
-docker container exec -it control bash
-ssh-keygen  # Generate a new key and leave the defaults including no password.
-ssh-copy-id remote-user@ec1  # You should be able to copy the key to the ec1 node
-ansible all -m ping  # should return a green success message.
-```
-
-## Setup the rest of the fleet
-The more `v`'s, the more vebose the commands.
-```bash
-cd ~/ansible/00_simple_ansible_cli
-ansible all -m ping  # should return a green success message and 2 failed.
-```
 
 #### Copy the keys to all node containers
-In the previous step, the key was copied to `ec1`. `ec2` and `ec3` still don't
-have the control's ansible public key.
+Copy the keys inside the container
 ```bash
-for host in ec2, ec3; do ssh-copy-id remote-ansible@${host}; done
-ansible all -m ping -o
+rm ~/.ssh/known_hosts  # If it's not the first time running this docker-compose, it will complain about the key being different in the next line.
+for host in ec1 ec2 ec3; do ssh-copy-id -i ~/.ssh/id_rsa remote-ansible@${host}; done
+```
+
+## Test Ansible setup
+The more `v`'s, the more vebose the commands.
+```bash
+cd /etc/ansible/aws_create_users
+ansible all -m ping  # should return a green success message and 2 failed.
 ```
 
 #### List hosts of a particular group from the inventory
@@ -53,6 +45,18 @@ ansible all -m ping -o
 ansible aws --list-hosts  # only in th 'aws' group
 ansible all --list-hosts  # list all hosts
 ansible ~.*3 --list-hosts  # using POSIX to find with pattern
+```
+
+
+## Ansible Playbooks
+Make sure you are running a bash shell inside the `control` container. If you
+aren't, run: `docker container exec -it control bash`
+Now, to run a playbook, go into one of the `/ansible/0X_test_folder` directories
+(which have a different `ansible.cfg` file each) and run the ansible playbooks
+from there:
+```bash
+cd /etc/ansible/aws_create_users/
+ansible-playbook create_users.yml
 ```
 
 ## Ansible CLI and Modules
@@ -113,16 +117,3 @@ ansible aws -m file -a 'state=file mode=600 path=/tmp/test_modules.txt'
 ansible aws -m fetch -a 'src=/tmp/test_modules.txt dest=/tmp/test_modules.txt'  # will copy each to a newly created folder such as "dest": "/tmp/test_modules.txt/ec3/tmp/test_modules.txt",
 ```
 
-
-## Ansible Playbooks
-Make sure you are running a bash shell inside the `control` container. If you
-aren't, run: `docker container exec -it control bash`
-
-Now, to run a playbook, go into one of the `/ansible/0X_test_folder` directories
-(which have a different `ansible.cfg` file each) and run the ansible playbooks
-from there:
-
-```bash
-cd ~/ansible/01_intro_ansible_playbook
-ansible-playbook 06_playbook_motd.yml
-```

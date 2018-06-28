@@ -1,0 +1,11 @@
+commit 90b7022fe197921b4ae183890f91355062dc0484
+tree 8e3027a215dea0aa8bf8ba7074d66f06a19a6ac3
+parent 080c78b6e01460990eccca2ce5488de748efdfd2
+author João Ferrão <jrcferrao@gmail.com> 2018-06-28 11:43:52 +0100
+committer João Ferrão <jrcferrao@gmail.com> 2018-06-28 11:43:52 +0100
+
+    Added Jenkinsfile
+
+
+
+:100644 100644 bdafffa03e1b3988e9d5fb2e698a12973612fbf3 09cd0a8b41a244b3b77a09689ccaa056b96eba52 M	Jenkinsfile

@@ -1,0 +1,17 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2018-06-28 09:18:07.484 UTC</timestamp>
+  <md5sum>45494db4c329195f7d15e352e969ef16</md5sum>
+  <fileName>Credential id=github name=tekne/****** (GitHub Access Token)</fileName>
+  <usages>
+    <entry>
+      <string>docker-ansible-testing/jenkins</string>
+      <ranges>1-4</ranges>
+    </entry>
+    <entry>
+      <string>creating-a-pipeline-in-blue-ocean/master</string>
+      <ranges>1</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

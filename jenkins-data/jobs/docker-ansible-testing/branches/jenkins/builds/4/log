@@ -1,0 +1,96 @@
+Branch indexing
+[8mha:////4IszwAYYisRVVO0VxMqi3jwP8hQTtFsUQTh7RVdRnW3NAAAAhB+LCAAAAAAAAP9b85aBtbiIwSa/KF0vKzUvOzOvODlTryCnNB3I0kvPLMkoTYpPKkrMS86IL84vLUpO1XPPLPEoTXLOzyvOz0n1yy9JZYAARiYGRi8GzpLM3NTiksTcgooiBqmM0pTi/Dy9ZIhiPayaGCoKgHSK6z+dOgBCM4XQjgAAAA==[0mConnecting to https://api.github.com using tekne/****** (GitHub Access Token)
+Obtained Jenkinsfile from 90b7022fe197921b4ae183890f91355062dc0484
+Running in Durability level: MAX_SURVIVABILITY
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] node
+Running on [8mha:////4Ln9W1RdWpg3Sln5vSTHIdKtbLIPyc6vAUjmh2WRQwlPAAAAnh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZh/eT83ILSktQifY3cxGIgrakPAHib2iPIAAAA[0mJenkins in /var/jenkins_home/workspace/ker-ansible-testing_jenkins-5FAJWM3R2GROMVDN6IRCYDTBJYGVXMQU672UZBBTEGEXAAECBMLQ
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] {
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] stage
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] { (Declarative: Checkout SCM)
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] checkout
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/joaoferrao/docker-ansible-testing.git # timeout=10
+Cleaning workspace
+ > git rev-parse --verify HEAD # timeout=10
+Resetting working tree
+ > git reset --hard # timeout=10
+ > git clean -fdx # timeout=10
+Fetching without tags
+Fetching upstream changes from https://github.com/joaoferrao/docker-ansible-testing.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials GitHub Access Token
+ > git fetch --no-tags --progress https://github.com/joaoferrao/docker-ansible-testing.git +refs/heads/jenkins:refs/remotes/origin/jenkins
+Checking out Revision 90b7022fe197921b4ae183890f91355062dc0484 (jenkins)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 90b7022fe197921b4ae183890f91355062dc0484
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D jenkins # timeout=10
+ > git checkout -b jenkins 90b7022fe197921b4ae183890f91355062dc0484
+Commit message: "Added Jenkinsfile"
+ > git rev-list --no-walk 080c78b6e01460990eccca2ce5488de748efdfd2 # timeout=10
+Cleaning workspace
+ > git rev-parse --verify HEAD # timeout=10
+Resetting working tree
+ > git reset --hard # timeout=10
+ > git clean -fdx # timeout=10
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] }
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] // stage
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] withEnv
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] {
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] stage
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] { (Run Playbook)
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] sh
+[ker-ansible-testing_jenkins-5FAJWM3R2GROMVDN6IRCYDTBJYGVXMQU672UZBBTEGEXAAECBMLQ] Running shell script
++ cd /etc/ansible/aws_create_users
++ ansible-playbook create_users.yml
+
+PLAY [aws] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ec1]
+ok: [ec2]
+ok: [ec3]
+
+TASK [include_vars] ************************************************************
+ok: [ec3]
+ok: [ec2]
+ok: [ec1]
+
+TASK [Add users | create users, shell, home dirs] ******************************
+ok: [ec2] => (item={u'username': u'awsuser', u'use_sudo': True})
+ok: [ec1] => (item={u'username': u'awsuser', u'use_sudo': True})
+ok: [ec3] => (item={u'username': u'awsuser', u'use_sudo': True})
+
+TASK [Setup | authorized key upload] *******************************************
+ok: [ec3] => (item={u'username': u'awsuser', u'use_sudo': True})
+ok: [ec1] => (item={u'username': u'awsuser', u'use_sudo': True})
+ok: [ec2] => (item={u'username': u'awsuser', u'use_sudo': True})
+
+TASK [Sudoers | update sudoers file and validate] ******************************
+ [WARNING]: when statements should not include jinja2 templating delimiters
+such as {{ }} or {% %}. Found: {{ item.use_sudo }} == True
+ [WARNING]: when statements should not include jinja2 templating delimiters
+such as {{ }} or {% %}. Found: {{ item.use_sudo }} == True
+ [WARNING]: when statements should not include jinja2 templating delimiters
+such as {{ }} or {% %}. Found: {{ item.use_sudo }} == True
+ok: [ec3] => (item={u'username': u'awsuser', u'use_sudo': True})
+ok: [ec2] => (item={u'username': u'awsuser', u'use_sudo': True})
+ok: [ec1] => (item={u'username': u'awsuser', u'use_sudo': True})
+
+PLAY RECAP *********************************************************************
+ec1                        : ok=5    changed=0    unreachable=0    failed=0   
+ec2                        : ok=5    changed=0    unreachable=0    failed=0   
+ec3                        : ok=5    changed=0    unreachable=0    failed=0   
+
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] }
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] // stage
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] }
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] // withEnv
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] }
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] // node
+[8mha:////4ADoG0EXRAImD2qCgJfSpb22JyYQ/P17Aif6NAoN1xMRAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] End of Pipeline
+
+GitHub has been notified of this commit’s build result
+
+Finished: SUCCESS
